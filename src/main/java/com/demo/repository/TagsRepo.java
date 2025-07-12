@@ -4,7 +4,9 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.demo.model.Tags;
 @Repository
-public interface Category extends JpaRepository<Category,UUID> {
+public interface TagsRepo extends JpaRepository<Tags,UUID> {
 
 }

@@ -57,6 +57,12 @@ public class Post {
 	@JoinColumn
 	private User author;
 	
+	
+	
+	
+	@ManyToOne
+	@JoinColumn(name="c_id")
+	private Category category;
 	@Override
 	public int hashCode() {
 		return Objects.hash(content, createat, id, readingTime, type, updatedAt);
