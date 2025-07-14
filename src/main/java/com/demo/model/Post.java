@@ -2,6 +2,7 @@ package com.demo.model;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,6 +16,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -63,6 +66,12 @@ public class Post {
 	@ManyToOne
 	@JoinColumn(name="c_id")
 	private Category category;
+	
+	
+	
+	@ManyToMany
+	@JoinTable(joinColumns=@JoinColumn(name="post_id"),inverseJoinColumns=@JoinColumn(name="tags_id"))
+	private Set<Tags>tags;
 	@Override
 	public int hashCode() {
 		return Objects.hash(content, createat, id, readingTime, type, updatedAt);
